@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HN AI Education Reader</title>
+<meta name="description" content="Explore a year of Hacker News discussion about AI detectors, AI-assisted cheating, and how teachers are responding. Usernames removed; posts shown as excerpts.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site wrap">
+  <h1>HN AI Education Reader</h1>
+  <p id="lede">Loading…</p>
+  <nav><a href="#reader">Read posts</a><a href="methods.html">Methods &amp; limits</a></nav>
+</header>
+
+<div class="filters" role="region" aria-label="Filters">
+  <div class="wrap">
+    <div class="fgroup" id="f-groups"><span class="lbl">Group</span></div>
+    <div class="fgroup"><span class="lbl">Type</span>
+      <div class="seg" id="f-type">
+        <button data-v="all" aria-pressed="true">All</button>
+        <button data-v="story" aria-pressed="false">Stories</button>
+        <button data-v="comment" aria-pressed="false">Comments</button>
+      </div>
+    </div>
+    <div class="fgroup"><span class="lbl">Scope</span>
+      <div class="seg" id="f-scope" title="Keyword-matched: the item's own text meets the corpus definition. Full threads: also include every reply in a matched story's thread.">
+        <button data-v="matched" aria-pressed="true">Keyword-matched only</button>
+        <button data-v="all" aria-pressed="false">Full threads</button>
+      </div>
+    </div>
+    <div class="fgroup"><label class="lbl" for="f-q">Words</label>
+      <input type="search" id="f-q" placeholder="e.g. turnitin false positive" autocomplete="off">
+    </div>
+    <div class="active-filters" id="f-active" aria-live="polite"></div>
+    <div class="count-line" id="count-line"></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="panel" id="p-time">
+    <h2>Items per week</h2>
+    <p class="sub">Drag across the chart to limit every view to a date range. Click outside the selection to clear it.</p>
+    <div class="chart" id="c-time"></div>
+    <details class="table"><summary>Show as table</summary><div class="table-scroll" id="t-time"></div></details>
+  </section>
+
+  <div class="grid2">
+    <section class="panel" id="p-sent">
+      <h2>Sentiment score distribution</h2>
+      <p class="sub">VADER compound score per item, from −1 to +1. The middle bar counts items with a score of exactly 0, which usually means no sentiment words were found. Drag to select a score range.</p>
+      <div class="fgroup" style="margin-bottom:8px"><span class="lbl">Lexicon</span>
+        <div class="seg" id="f-sent">
+          <button data-v="s" aria-pressed="true">Stock VADER</button>
+          <button data-v="s_tn" aria-pressed="false">Topic-neutral</button>
+        </div>
+      </div>
+      <p class="hint" id="sent-note"></p>
+      <div class="chart" id="c-sent"></div>
+      <details class="table"><summary>Show as table</summary><div id="t-sent"></div></details>
+    </section>
+
+    <section class="panel" id="p-groups">
+      <h2>Sentiment by group</h2>
+      <p class="sub">The same scores, split by group and shown as a share of each group, so groups of different sizes can be compared. An item can belong to more than one group.</p>
+      <div class="chart" id="c-groups"></div>
+      <details class="table"><summary>Show as table</summary><div id="t-groups"></div></details>
+    </section>
+  </div>
+
+  <section class="panel" id="p-topics">
+    <h2>Topics</h2>
+    <p class="sub">Each item longer than a dozen words is assigned to its strongest topic. Topics are named only by their top terms; no one has interpreted them. Two different models are available, and they split the conversation differently. Click a topic to filter.</p>
+    <div class="topic-tools">
+      <div class="fgroup"><span class="lbl">Model</span>
+        <div class="seg" id="f-model">
+          <button data-v="nmf" aria-pressed="true">NMF</button>
+          <button data-v="lda" aria-pressed="false">LDA</button>
+        </div>
+      </div>
+      <div class="fgroup"><span class="lbl">Order</span>
+        <div class="seg" id="f-torder">
+          <button data-v="n" aria-pressed="true">Size</button>
+          <button data-v="id" aria-pressed="false">Model order</button>
+        </div>
+      </div>
+      <span class="hint" id="topic-note"></span>
+    </div>
+    <div class="topics" id="c-topics"></div>
+  </section>
+
+  <section class="panel" id="reader">
+    <h2>Read the posts</h2>
+    <p class="sub">The items behind the charts above, filtered the same way. Each shows the opening of the post's own words: at most half the post, up to 200 characters, with quoted text removed. Usernames, links and HN ids have been removed. "Show thread" lists the excerpts around an item in reply order.</p>
+    <div class="reader-tools">
+      <label class="hint" for="f-sort">Order</label>
+      <select id="f-sort">
+        <option value="new">Newest first</option>
+        <option value="old">Oldest first</option>
+        <option value="random">Random sample</option>
+        <option value="neg">Lowest score first</option>
+        <option value="pos">Highest score first</option>
+        <option value="points">Story points (stories only)</option>
+      </select>
+      <button class="linkbtn" id="reshuffle" hidden>Reshuffle</button>
+    </div>
+    <ol class="items" id="items"></ol>
+    <div class="pager" id="pager"></div>
+  </section>
+</main>
+<div class="tooltip" id="tip" role="status"></div>
+
+<script src="vendor/d3-7.9.0.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

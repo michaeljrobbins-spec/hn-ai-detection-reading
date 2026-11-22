@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methods and Limits</title>
+<meta name="description" content="How the HN AI Education Reader dataset was collected, filtered, anonymized and analyzed, and what the methods cannot tell you.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site wrap">
+  <h1>Methods and limits</h1>
+  <p>How the data in the <a href="index.html">HN AI Education Reader</a> was collected, filtered, anonymized and scored, and where each step can mislead.</p>
+</header>
+<main class="wrap prose">
+
+<h2>What this is (and is not)</h2>
+<p>A browsable snapshot of Hacker News discussion about AI in education, focused on AI-writing detectors, cheating with AI, and how teachers are responding. It is meant for reading and exploring the conversation. It does not measure what "Hacker News thinks", and it does not represent students, teachers, or the public: HN commenters are a narrow, self-selected, mostly tech-industry group, and the people who post are a fraction of those who read.</p>
+<p>No chart on the dashboard carries an interpretation. Topic names are lists of words, not labels someone wrote, and sentiment is shown as distributions rather than averages.</p>
+
+<h2>Collection</h2>
+<p>Source: the Hacker News search API run by Algolia (<code>hn.algolia.com</code>), which the official HN API documentation points to for search. The window is <span data-meta="window0"></span> to <span data-meta="window1"></span>; the snapshot was taken <span data-meta="snapshot"></span>. Scores and threads keep changing on HN after a snapshot, so a rerun will differ slightly (deleted comments, new replies, changed points).</p>
+<ol>
+  <li><strong>Seed searches.</strong> Every pairing of an AI word (ai, llm, chatgpt, gpt, claude, gemini, copilot, chatbot, genai) with an education word (student, teacher, professor, school, homework, essay, exam, plagiarism, cheating, …), plus detector names (Turnitin, GPTZero, Originality.ai, Copyleaks, ZeroGPT) and phrases such as "blue book", "oral exam" and "academic integrity". That is 202 queries, each run for stories and for comments: 404 searches. Typo tolerance was switched off: with it on, "turnitin" also matched "Turnstile" and returned roughly 100 times as many stories.</li>
+  <li><strong>Threads.</strong> For each candidate story, the full comment tree was fetched.</li>
+  <li><strong>Filtering</strong> with the rules below.</li>
+</ol>
+
+<h2>Which items count</h2>
+<p>The searches only find candidates. The corpus itself is defined by plain regular-expression rules in <code>pipeline/config.py</code> and <code>pipeline/relevance.py</code>:</p>
+<ul>
+  <li><strong>Text rule</strong> (comments, story text): it names a detector product, or uses generic "AI detector" language alongside writing or education words, or it contains at least two <em>strong</em> education words (students, teachers, homework, exams, essays, syllabus, K-12, …) with an AI term within 8 words of one of them.</li>
+  <li><strong>Story rule</strong>: the title names a detector; or the title has an AI term and a strong education word; or the title has an AI term and only a <em>weak</em> education word (school, university, college, academic, …), <em>and</em> at least 3 comments in its thread pass the text rule; or the story's own text passes the text rule.</li>
+</ul>
+<p>That gives three layers, which the dashboard keeps apart:</p>
+<table>
+  <tr><th>Layer</th><th>What it is</th><th>Items</th></tr>
+  <tr><td>Matched stories</td><td>stories passing the story rule</td><td data-meta="n_stories"></td></tr>
+  <tr><td>Their threads</td><td>every reply under a matched story; a reply is marked "keyword-matched" only if its own text passes the text rule</td><td data-meta="n_thread_comments"></td></tr>
+  <tr><td>Comments from other threads</td><td>comments passing the text rule in threads that are <em>not</em> in the corpus; shown without their thread</td><td data-meta="n_standalone"></td></tr>
+</table>
+<p><strong>Group tags</strong> sort matched items into the three themes, based on the item's own words: <em>AI detectors</em> (a detector product or generic detector language), <em>students cheating</em> (cheat, plagiarism, academic integrity, …), <em>how teachers are responding</em> (blue books, oral exams, handwritten or in-class work, proctoring, AI policies, assessment redesign, …). An item can carry several tags; matched items with none are tagged <em>other AI-in-education</em>. Replies that aren't keyword-matched take their thread's tags for filtering. These tags come from keywords, so a comment saying "students cheat" counts as being about cheating whether it is defending students or condemning them.</p>
+
+<h3>How accurate is the filter?</h3>
+<p>The rules were developed against one hand-labelled sample of 100 items. Under the first draft rule, only 36 of those 100 were on topic, which is why the rule was tightened. Accuracy was then measured on a <em>separate</em>, freshly drawn sample, 30 items from each layer. Criterion: <span id="audit-criterion"></span></p>
+<table id="audit-table"><tr><th>Layer</th><th>On topic</th></tr></table>
+<p class="hint" id="audit-who"></p>
+<p>Read this as: most matched items are on topic, but not all, and about half of the non-matched replies in threads have drifted elsewhere (jobs, commencement speeches, copyright). That is why the dashboard opens on "keyword-matched only". Samples of 30 give rough numbers: each row is uncertain by up to about ±18 percentage points (95% interval). <strong>Recall was not measured</strong>, beyond seeing on the development sample that the stricter rule drops some relevant comments that use other vocabulary. Discussion that never uses these words is missing, and so is anything Algolia's search didn't return.</p>
+
+<h2>Anonymization</h2>
+<ul>
+  <li>Usernames were dropped from every record before anything was saved to the repository.</li>
+  <li>HN item ids were replaced with new sequential ids, and no mapping back to HN is published. The dashboard has no links to HN.</li>
+  <li>Timestamps were reduced to the date.</li>
+  <li>Inside the text, these were replaced with <code>[user]</code>: "@name" mentions; any of the roughly 21,500 collected author names that is rare as an English word (judged by general English word frequency), wherever it appears; and the names of other people in the same thread, unless they are very common words. This is best effort. A username that is also an everyday word ("coffee", "david"), mentioned from a different thread, is not caught, and some real words and names are redacted unnecessarily.</li>
+  <li>URLs were replaced with <code>[link]</code>.</li>
+  <li>The dashboard shows only the opening of each post's own words: at most half of the post, and never more than <span data-meta="excerpt_chars"></span> characters, so no post appears in full. Very short posts are reduced to a few words. Story titles are shown in full.</li>
+  <li>Search uses a word index: which posts contain which words, for words used in at least 3 posts, with no word order. This lets longer posts be searched without publishing them. Posts with fewer than <span data-meta="index_min_words"></span> words (<span data-meta="n_short_unindexed"></span> of them) are left out of the index, because for a very short post the word list gives away most of what it says. Those posts are searched only through the excerpt shown on the page.</li>
+</ul>
+<p><strong>What this does not do:</strong> HN is public and searchable. An excerpt or title pasted into a search engine, or into HN's own search, will usually find the original post and its author. These steps keep the dashboard from pointing at people. They do not make the text untraceable. Raw API data, which does contain usernames, stays out of the repository.</p>
+
+<h2>Sentiment</h2>
+<p>Each item is scored with <a href="https://github.com/cjhutto/vaderSentiment">VADER</a>, a word-list (lexicon) method built for social media text. The compound score runs from −1 to +1. It is calculated from the item's own words; quoted text (lines starting with "&gt;") is removed first.</p>
+<p>Known problems, and how the dashboard surfaces them:</p>
+<ul>
+  <li><strong>The subject's own vocabulary is scored as negative.</strong> VADER rates words like these as negative or positive no matter how they're used: <span id="tn-words"></span>. An article summary that only mentions cheating comes out negative. The <em>topic-neutral</em> lexicon sets these words to 0. Neither version is "correct". Comparing the two shows how much of the negativity comes from the topic's vocabulary rather than from people's attitude.</li>
+  <li><strong>Sentiment is not stance.</strong> A furious post about a student falsely accused by Turnitin and a furious post about students cheating both score negative. The score says nothing about which side someone is on.</li>
+  <li><strong>Sarcasm, irony and technical writing</strong> are often misread: "Great, another detector." scores +0.62, and "Wonderful. Another false positive." scores +0.81.</li>
+  <li><strong>Many items score exactly 0</strong>, which usually means VADER found no words from its list. That is not the same as a neutral opinion, so the chart shows these as a separate bar.</li>
+  <li>Each post in the reader lists the lexicon words that drove its score, so you can check any score against the text.</li>
+</ul>
+
+<h2>Topics</h2>
+<p>Two topic models are fitted to every item with at least <span data-meta="min_topic_tokens"></span> words (<span data-meta="n_topic_docs"></span> items), both using scikit-learn on single words and two-word phrases. Common English words, plus a list of conversational filler ("just", "really", "time", …), are removed first.</p>
+<ul>
+  <li><strong>NMF</strong> (non-negative matrix factorization, using tf-idf weights) tends to give sharper, more separate topics. It also tends to produce one broad catch-all topic.</li>
+  <li><strong>LDA</strong> (latent Dirichlet allocation, using word counts) treats each post as a mix of topics. Its topics are usually blurrier.</li>
+</ul>
+<p>For each model, the number of topics <em>k</em> was chosen from <span data-meta="k_candidates"></span> by topic coherence (NPMI: how often each topic's top words appear together in the same posts in this corpus). Values below 10 were not tried, on the judgement that fewer topics would be too coarse to explore. A post is assigned to its strongest topic only if that topic accounts for at least <span data-meta="min_topic_share"></span> of its weight; otherwise it has no dominant topic.</p>
+<table id="coh-table"><tr><th>Model</th><th>k tried → NPMI</th><th>Chosen</th></tr></table>
+<p>Topics are statistical word patterns, not themes someone has confirmed by reading. The two models split the same conversation differently, and both depend on the random seed, the stop words and <em>k</em>. Treat a topic as a suggestion for where to start reading, not as a finding.</p>
+
+<h2>Reproducing</h2>
+<p>Code is in <code>pipeline/</code>: <code>collect.py</code> → <code>build_corpus.py</code> → <code>analyze.py</code>, with <code>audit.py</code> for drawing new precision samples. See the README for commands.</p>
+</main>
+<script src="vendor/d3-7.9.0.min.js"></script>
+<script>
+(async () => {
+  const meta = await d3.json("data/meta.json");
+  const topics = await d3.json("data/topics.json");
+  const fmt = d3.format(",");
+  const vals = {
+    window0: meta.window[0], window1: meta.window[1], snapshot: meta.snapshot,
+    n_stories: fmt(meta.n_stories), n_standalone: fmt(meta.n_standalone),
+    n_thread_comments: fmt(meta.n_comments - meta.n_standalone),
+    excerpt_chars: meta.excerpt_chars, min_topic_tokens: meta.min_topic_tokens,
+    n_topic_docs: fmt(meta.n_topic_docs), k_candidates: meta.k_candidates.join(", "),
+    min_topic_share: meta.min_topic_share,
+    index_min_words: meta.index_min_words, n_short_unindexed: fmt(meta.n_short_unindexed),
+  };
+  document.querySelectorAll("[data-meta]").forEach((el) => (el.textContent = vals[el.dataset.meta]));
+  document.getElementById("tn-words").textContent =
+    meta.topic_neutral_words.map(([w, v]) => `${w} (${v > 0 ? "+" : ""}${v})`).join(", ");
+  const names = { story: "Matched stories", standalone: "Comments from other threads",
+    thread_matched: "Keyword-matched comments in threads", thread_unmatched: "Non-matched replies in threads" };
+  if (meta.audit) {
+    document.getElementById("audit-criterion").textContent = "“" + meta.audit.criterion + "”";
+    document.getElementById("audit-who").textContent = "Labelled by: " + meta.audit.labeller;
+    const t = document.getElementById("audit-table");
+    for (const [k, v] of Object.entries(meta.audit.validation)) {
+      const r = t.insertRow();
+      r.insertCell().textContent = names[k] || k;
+      r.insertCell().textContent = `${v.on_topic} of ${v.n} (${Math.round((100 * v.on_topic) / v.n)}%)`;
+    }
+  }
+  const c = document.getElementById("coh-table");
+  for (const m of ["nmf", "lda"]) {
+    const r = c.insertRow();
+    r.insertCell().textContent = m.toUpperCase();
+    r.insertCell().textContent = topics[m].trials.map((x) => `${x.k} → ${x.coherence.toFixed(3)}`).join(" · ");
+    r.insertCell().textContent = `k = ${topics[m].k}`;
+  }
+})();
+</script>
+</body>
+</html>
