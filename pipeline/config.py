@@ -99,6 +99,23 @@ TEACHING_CONTEXT = _rx(
     r"curricul(?:um|a)|teach\w*|students?|teachers?|professors?|"
     r"instructors?|lecturers?|educators?|schools?|universit(?:y|ies))\b")
 RESPONSE_WINDOW = 6  # tokens
+# The detector group is limited to school settings. Turnitin is sold to
+# schools and always counts; any other detector mention (a brand or generic
+# "AI detector" wording) needs a school word within DETECTOR_SCHOOL_WINDOW
+# tokens. "Essay" and bare "academic" are left out: on HN they usually mean
+# blog essays and research papers.
+SCHOOL_DETECTORS = _rx(r"\bturnitin\b")
+SCHOOL_CONTEXT = _rx(
+    r"\b(students?|teachers?|professors?|profs?|instructors?|lecturers?|"
+    r"educators?|tutors?|classrooms?|classes|courses?|coursework|homework|"
+    r"assignments?|exams?|quiz(?:zes)?|grad(?:ed|ing)|grades|schools?|"
+    r"schooling|universit(?:y|ies)|unis?|colleges?|campus(?:es)?|undergrad\w*|"
+    r"k-?12|(?:high|middle|grade|elementary|primary|secondary) ?schools?|"
+    r"semesters?|syllabus|syllabi|curricul(?:um|a)|"
+    r"academic (?:integrity|honesty|dishonesty|misconduct)|freshm[ae]n|"
+    r"sophomores?|teaching|pupils?|dean)\b")
+DETECTOR_SCHOOL_WINDOW = 25  # tokens
+
 # Generic detector wording in a story title counts as "detection" unless the
 # title is about some other kind of detection.
 NON_TEXT_DETECTION = _rx(
@@ -117,7 +134,7 @@ MIN_THREAD_SUPPORT = 3
 # least one (see relevance.py); general AI-in-education talk without any of
 # them is left out.
 GROUPS = {
-    "detection": "AI detectors (Turnitin, GPTZero, ...)",
+    "detection": "AI detectors in schools (Turnitin, ...)",
     "cheating": "Students cheating with AI",
     "response": "How teachers are responding",
 }

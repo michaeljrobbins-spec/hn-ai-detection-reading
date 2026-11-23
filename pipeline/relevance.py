@@ -1,8 +1,8 @@
 """The corpus definition: which items count as being about AI in education.
 
 Text rule (comments, and story body text) -- a text is *matched* when:
-  - it names a detector product (Turnitin, GPTZero, ...), or
-  - it uses generic "AI detector" language plus an education/writing word, or
+  - it mentions AI detectors in a school setting (Turnitin, or any other
+    detector with a school word within DETECTOR_SCHOOL_WINDOW tokens), or
   - it has >= MIN_STRONG strong education words, with an AI term within
     PROXIMITY_WINDOW tokens of one of them.
 
@@ -14,7 +14,7 @@ Story rule -- a story is matched when:
   - its body text passes the text rule.
 
 Focus tags (an item can carry several):
-  detection - detector product or generic detector language
+  detection - AI detectors in a school setting (see _detection)
   cheating  - cheating / plagiarism / academic-integrity vocabulary
   response  - assessment and policy changes (blue books, oral exams, bans,
               moratoriums, redesigned assessment, ...)
@@ -29,10 +29,11 @@ second, fresh one; see pipeline/audit.py and the Methods page.
 import re
 
 from config import (AI_TERMS, CHEATING_TERMS, DETECTOR_BRANDS,
-                    GENERIC_DETECTOR, MIN_STRONG, MIN_THREAD_SUPPORT,
-                    NON_TEXT_DETECTION, PROXIMITY_WINDOW, RESPONSE_GENERAL,
-                    RESPONSE_SPECIFIC, RESPONSE_WINDOW, STRONG_EDU,
-                    TEACHING_CONTEXT, WEAK_EDU, WRITING_TERMS)
+                    DETECTOR_SCHOOL_WINDOW, GENERIC_DETECTOR, MIN_STRONG,
+                    MIN_THREAD_SUPPORT, NON_TEXT_DETECTION, PROXIMITY_WINDOW,
+                    RESPONSE_GENERAL, RESPONSE_SPECIFIC, RESPONSE_WINDOW,
+                    SCHOOL_CONTEXT, SCHOOL_DETECTORS, STRONG_EDU,
+                    TEACHING_CONTEXT, WEAK_EDU)
 
 _TOKEN = re.compile(r"\S+")
 
@@ -64,10 +65,16 @@ def _near(a, b, window):
 
 
 def _detection(text):
-    if DETECTOR_BRANDS.search(text):
+    """AI-detector talk in a school setting: Turnitin, or any other detector
+    mention with a school word within DETECTOR_SCHOOL_WINDOW tokens."""
+    if SCHOOL_DETECTORS.search(text):
         return True
-    return bool(GENERIC_DETECTOR.search(text)) and bool(
-        STRONG_EDU.search(text) or WRITING_TERMS.search(text))
+    mentions = sorted(_positions(DETECTOR_BRANDS, text)
+                      + _positions(GENERIC_DETECTOR, text))
+    if not mentions:
+        return False
+    return _near(mentions, _positions(SCHOOL_CONTEXT, text),
+                 DETECTOR_SCHOOL_WINDOW)
 
 
 def text_matches(text):
@@ -104,13 +111,17 @@ def story_candidate(title, text):
 def groups_for(text, title=""):
     """Focus-group tags for an item; empty if it has none.
 
-    In a story *title*, generic "AI detector" wording counts on its own:
-    titles are too short to carry the writing/education words the text
-    rule asks for ("AI detectors are a bad idea")."""
+    For a story, `text` is its title plus body and `title` its title."""
     groups = []
-    title_detector = bool(title) and bool(GENERIC_DETECTOR.search(title)) \
-        and not NON_TEXT_DETECTION.search(title)
-    if _detection(text) or title_detector:
+    # A detector title ("AI detectors are a bad idea") counts when the
+    # story's title or text has a school word anywhere: titles are too short
+    # for the proximity test.
+    title_detector = bool(title) \
+        and bool(GENERIC_DETECTOR.search(title) or DETECTOR_BRANDS.search(title)) \
+        and not NON_TEXT_DETECTION.search(title) \
+        and bool(SCHOOL_CONTEXT.search(text))
+    other_kind = bool(title) and bool(NON_TEXT_DETECTION.search(title))
+    if (_detection(text) or title_detector) and not other_kind:
         groups.append("detection")
     if CHEATING_TERMS.search(text):
         groups.append("cheating")

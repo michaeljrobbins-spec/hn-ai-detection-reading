@@ -11,8 +11,8 @@ is shown as full distributions, with the words that drove each score.
 - **Methods and limits:** `docs/methods.html`: read this before citing anything
 
 Snapshot: 22 Nov 2025 – 22 Nov 2026, collected 22 Nov 2026.
-195 stories with their threads, plus 814 relevant comments from other
-threads: 7,565 items in all. Only items about the three focus topics are
+98 stories with their threads, plus 340 relevant comments from other
+threads: 6,837 items in all. Only items about the three focus topics are
 included; general AI-in-education talk (AI tutors, edtech launches, AI and
 graduate jobs) is left out.
 
@@ -84,13 +84,14 @@ missing threads.
 ## Known limits (short version; details on the Methods page)
 
 - **Relevance is keyword-based.** On a fresh hand-labelled sample, about 83%
-  of matched stories, 70% of comments from other threads and 93% of
-  keyword-matched thread comments were about the focus topics, but only
-  about a third of non-matched thread replies. Recall was not measured.
-- **Most detector discussion is not about school.** About three-quarters of
-  items tagged "AI detectors" have no education word: people running Pangram
-  or GPTZero on blog posts and HN submissions. The group covers AI-writing
-  detection generally.
+  of matched stories and 93% of keyword-matched thread comments were about
+  the focus topics, but only about half of comments from other threads and a
+  third of non-matched thread replies. Recall was not measured.
+- **The detector group is limited to school settings.** Turnitin always
+  counts; any other detector mention needs a school word within 25 words.
+  This leaves out most of HN's detector talk (people running Pangram or
+  GPTZero on blog posts), and misses school detector stories that never use
+  a school word.
 - **VADER sentiment is not stance**, and it scores the subject's own words
   ("cheating", "ban", "fail") as negative. That is why there is a
   topic-neutral variant.

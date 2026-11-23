@@ -1,5 +1,5 @@
 {
- "criterion": "Is this item about AI-writing detectors (in or out of school), students cheating with AI, or how teachers and schools are responding to AI (assessment, teaching, policy)?",
+ "criterion": "Is this item about AI detectors used in school settings, students cheating with AI, or how teachers and schools are responding to AI (assessment, teaching, policy)?",
  "labeller": "Claude (AI assistant), single pass, this snapshot. Not independently double-coded.",
  "validation": {
   "story": {
@@ -7,7 +7,7 @@
    "n": 30
   },
   "standalone": {
-   "on_topic": 21,
+   "on_topic": 15,
    "n": 30
   },
   "thread_matched": {
@@ -15,612 +15,612 @@
    "n": 30
   },
   "thread_unmatched": {
-   "on_topic": 10,
+   "on_topic": 9,
    "n": 30
   }
  },
  "development": {
-  "note": "Earlier samples were used to develop the rules and are not reported as precision: a 100-item sample tuned the AI-in-education rule (first draft 36/100 on topic), and a 120-item sample of the earlier, broader corpus measured it before the focus restriction."
+  "note": "Earlier samples developed the rules and are not reported as precision: a 100-item sample tuned the AI-in-education rule (first draft 36/100 on topic), and two 120-item samples measured earlier, broader versions of the corpus."
  },
  "labels": [
   {
    "stratum": "story",
-   "item_id": 1579,
-   "on_topic": false
-  },
-  {
-   "stratum": "story",
-   "item_id": 5548,
+   "item_id": 4583,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 823,
+   "item_id": 1646,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 457,
+   "item_id": 6524,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 6733,
-   "on_topic": false
-  },
-  {
-   "stratum": "story",
-   "item_id": 4804,
+   "item_id": 515,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 5258,
+   "item_id": 4673,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 6687,
+   "item_id": 4585,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 1992,
+   "item_id": 2355,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 5254,
+   "item_id": 1642,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 7254,
+   "item_id": 6085,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 4939,
+   "item_id": 437,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 6330,
+   "item_id": 1837,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 1984,
-   "on_topic": false
-  },
-  {
-   "stratum": "story",
-   "item_id": 3465,
+   "item_id": 3751,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 4058,
+   "item_id": 6041,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 7115,
+   "item_id": 5745,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 6655,
+   "item_id": 6616,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 797,
+   "item_id": 5456,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 6710,
+   "item_id": 2,
    "on_topic": true
   },
   {
    "stratum": "story",
-   "item_id": 6742,
-   "on_topic": true
-  },
-  {
-   "stratum": "story",
-   "item_id": 4926,
-   "on_topic": true
-  },
-  {
-   "stratum": "story",
-   "item_id": 4087,
-   "on_topic": true
-  },
-  {
-   "stratum": "story",
-   "item_id": 791,
-   "on_topic": true
-  },
-  {
-   "stratum": "story",
-   "item_id": 3379,
-   "on_topic": false
-  },
-  {
-   "stratum": "story",
-   "item_id": 7325,
-   "on_topic": true
-  },
-  {
-   "stratum": "story",
-   "item_id": 6750,
-   "on_topic": true
-  },
-  {
-   "stratum": "story",
-   "item_id": 5383,
-   "on_topic": true
-  },
-  {
-   "stratum": "story",
-   "item_id": 5947,
-   "on_topic": false
-  },
-  {
-   "stratum": "story",
-   "item_id": 2581,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 1713,
-   "on_topic": false
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 7061,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 3397,
-   "on_topic": false
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 3406,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 2029,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 3469,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 5118,
-   "on_topic": false
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 3448,
-   "on_topic": false
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 1720,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 7339,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 5169,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 3436,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 7096,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 7336,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 2837,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 5986,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 1587,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 7144,
-   "on_topic": false
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 1804,
-   "on_topic": false
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 7253,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 798,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 3378,
-   "on_topic": false
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 5223,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 2110,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 5409,
-   "on_topic": false
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 842,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 2561,
-   "on_topic": false
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 7135,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 4080,
-   "on_topic": true
-  },
-  {
-   "stratum": "standalone",
-   "item_id": 3453,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 4634,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 164,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 6312,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 613,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 1602,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 4937,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 127,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 158,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 6485,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 5412,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 5210,
-   "on_topic": false
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 4593,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 6303,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 6352,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 3966,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 2433,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 114,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 3845,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 1187,
-   "on_topic": false
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 1146,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 49,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 305,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 1829,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 7266,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 5348,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 6308,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 3976,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 5470,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 186,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_matched",
-   "item_id": 4353,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_unmatched",
-   "item_id": 261,
-   "on_topic": true
-  },
-  {
-   "stratum": "thread_unmatched",
    "item_id": 5706,
    "on_topic": false
   },
   {
-   "stratum": "thread_unmatched",
-   "item_id": 6094,
+   "stratum": "story",
+   "item_id": 5455,
+   "on_topic": true
+  },
+  {
+   "stratum": "story",
+   "item_id": 6458,
    "on_topic": false
   },
   {
-   "stratum": "thread_unmatched",
-   "item_id": 1182,
+   "stratum": "story",
+   "item_id": 5591,
    "on_topic": false
   },
   {
-   "stratum": "thread_unmatched",
-   "item_id": 5911,
+   "stratum": "story",
+   "item_id": 717,
    "on_topic": false
   },
   {
-   "stratum": "thread_unmatched",
-   "item_id": 1257,
+   "stratum": "story",
+   "item_id": 1865,
+   "on_topic": true
+  },
+  {
+   "stratum": "story",
+   "item_id": 6443,
+   "on_topic": true
+  },
+  {
+   "stratum": "story",
+   "item_id": 6062,
+   "on_topic": true
+  },
+  {
+   "stratum": "story",
+   "item_id": 3736,
+   "on_topic": true
+  },
+  {
+   "stratum": "story",
+   "item_id": 5427,
    "on_topic": false
   },
   {
-   "stratum": "thread_unmatched",
-   "item_id": 3266,
+   "stratum": "story",
+   "item_id": 1492,
+   "on_topic": true
+  },
+  {
+   "stratum": "story",
+   "item_id": 3162,
+   "on_topic": true
+  },
+  {
+   "stratum": "story",
+   "item_id": 1897,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 4740,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 5084,
    "on_topic": false
   },
   {
-   "stratum": "thread_unmatched",
-   "item_id": 4356,
+   "stratum": "standalone",
+   "item_id": 6422,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 5052,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 749,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 5056,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 1593,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 4712,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 3155,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 3135,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 6432,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 1884,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 3140,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 5721,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 1823,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 5712,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 1639,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 3152,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 1888,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 2343,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 495,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 5062,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 5641,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 5059,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 2451,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 1878,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 3142,
+   "on_topic": true
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 5067,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 1821,
+   "on_topic": false
+  },
+  {
+   "stratum": "standalone",
+   "item_id": 6049,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 4297,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 4903,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 5003,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 5963,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 1664,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 271,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 111,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 4627,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 5842,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 5601,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 1500,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 1750,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 5941,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 3534,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 4076,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 5979,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 3193,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 379,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 4981,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 1783,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 4925,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 1168,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 3665,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 3929,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 317,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 5658,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 5596,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 3581,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 79,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_matched",
+   "item_id": 5519,
    "on_topic": true
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 136,
+   "item_id": 619,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_unmatched",
+   "item_id": 5162,
    "on_topic": true
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 262,
+   "item_id": 2119,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_unmatched",
+   "item_id": 2629,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_unmatched",
+   "item_id": 896,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_unmatched",
+   "item_id": 43,
    "on_topic": true
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 59,
+   "item_id": 6472,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_unmatched",
+   "item_id": 5041,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_unmatched",
+   "item_id": 6661,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_unmatched",
+   "item_id": 4624,
    "on_topic": true
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 6105,
+   "item_id": 4206,
    "on_topic": false
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 3250,
-   "on_topic": false
-  },
-  {
-   "stratum": "thread_unmatched",
-   "item_id": 6163,
-   "on_topic": false
-  },
-  {
-   "stratum": "thread_unmatched",
-   "item_id": 3647,
-   "on_topic": false
-  },
-  {
-   "stratum": "thread_unmatched",
-   "item_id": 4879,
+   "item_id": 3817,
    "on_topic": true
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 2841,
+   "item_id": 2140,
    "on_topic": false
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 4767,
-   "on_topic": false
-  },
-  {
-   "stratum": "thread_unmatched",
-   "item_id": 3750,
+   "item_id": 387,
    "on_topic": true
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 4604,
+   "item_id": 6494,
    "on_topic": false
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 4435,
+   "item_id": 70,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_unmatched",
+   "item_id": 3973,
    "on_topic": true
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 2059,
-   "on_topic": false
-  },
-  {
-   "stratum": "thread_unmatched",
-   "item_id": 3720,
+   "item_id": 4018,
    "on_topic": true
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 4424,
+   "item_id": 917,
    "on_topic": false
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 1840,
+   "item_id": 771,
    "on_topic": false
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 4562,
+   "item_id": 6280,
    "on_topic": false
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 2680,
+   "item_id": 3418,
    "on_topic": false
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 2401,
+   "item_id": 3021,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_unmatched",
+   "item_id": 5656,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_unmatched",
+   "item_id": 6604,
    "on_topic": true
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 5886,
+   "item_id": 1725,
+   "on_topic": true
+  },
+  {
+   "stratum": "thread_unmatched",
+   "item_id": 3101,
    "on_topic": false
   },
   {
    "stratum": "thread_unmatched",
-   "item_id": 237,
+   "item_id": 6507,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_unmatched",
+   "item_id": 5587,
+   "on_topic": false
+  },
+  {
+   "stratum": "thread_unmatched",
+   "item_id": 6788,
    "on_topic": false
   }
  ]
