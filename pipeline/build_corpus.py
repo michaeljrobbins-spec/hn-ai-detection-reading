@@ -3,10 +3,11 @@
 Reads data/raw/, writes data/work/corpus.jsonl (gitignored: it still holds
 full text, which the analysis needs but the published site does not).
 
+Only items about the three focus topics are kept (see relevance.py).
 Corpus layers (the `source` field):
-  thread      a matched story and every reply in its thread
-  standalone  a comment that passes the text rule but sits in a thread that
-              is not in the corpus (its story did not match)
+  thread      a matched, focus-tagged story and every reply in its thread
+  standalone  a focus-tagged comment that passes the text rule but sits in a
+              thread that is not in the corpus
 
 Anonymization, applied before anything is written:
   * author fields are dropped;
@@ -32,6 +33,7 @@ from wordfreq import zipf_frequency
 
 sys.path.insert(0, str(Path(__file__).parent))
 from collect import strip_html  # noqa: E402
+from config import GROUPS, MIN_FOCUS_SUPPORT  # noqa: E402
 from relevance import (groups_for, story_candidate, text_matches,  # noqa
                        title_matches)
 
@@ -145,34 +147,51 @@ def main():
     for r in every:
         prepare(r)
 
+    # Keyword-matched AND carrying a focus tag (detection / cheating /
+    # response). General AI-in-education talk without one is left out.
+    for r in every:
+        r["focus"] = groups_for(r["own"]) if r["tm"] else []
+
     out = []
-    n_matched_threads = 0
+    stats = Counter()
     for sid, rs in threads.items():
         story = rs[0]
         comments = [r for r in rs[1:] if r["own"]]
         support = sum(r["tm"] for r in comments)
-        if title_matches(story["title"], support) or story["tm"]:
-            n_matched_threads += 1
-            story["matched"] = True
-            story["groups"] = groups_for(story["title"] + "\n" + story["own"])
-            story["source"] = "thread"
+        story_matched = title_matches(story["title"], support) or story["tm"]
+        story_groups = groups_for(story["title"] + "\n" + story["own"],
+                                  title=story["title"]) if story_matched else []
+        focus_comments = [r for r in comments if r["focus"]]
+        if story_matched and not story_groups and \
+                len(focus_comments) >= MIN_FOCUS_SUPPORT:
+            # Untagged story whose discussion is about the focus topics:
+            # it takes the tag(s) most common among those comments.
+            tally = Counter(g for r in focus_comments for g in r["focus"])
+            top = max(tally.values())
+            story_groups = [g for g in GROUPS if tally.get(g) == top]
+            stats["stories tagged from their thread"] += 1
+        if story_groups:
+            stats["threads kept"] += 1
+            story.update(matched=True, groups=story_groups, source="thread")
             out.append(story)
             for r in comments:
-                r["matched"] = r["tm"]
-                r["groups"] = groups_for(r["own"]) if r["tm"] else []
-                r["source"] = "thread"
+                r.update(matched=bool(r["focus"]), groups=r["focus"],
+                         source="thread")
                 out.append(r)
         else:
+            if story_matched:
+                stats["matched stories dropped (no focus tag)"] += 1
             for r in comments:
-                if r["tm"]:
-                    r.update(matched=True, groups=groups_for(r["own"]),
+                if r["focus"]:
+                    r.update(matched=True, groups=r["focus"],
                              source="standalone", title=story["title"])
                     out.append(r)
     for r in loose:
-        if r["own"] and r["tm"]:
-            r.update(matched=True, groups=groups_for(r["own"]),
-                     source="standalone")
+        if r["focus"]:
+            r.update(matched=True, groups=r["focus"], source="standalone")
             out.append(r)
+        elif r["tm"]:
+            stats["standalone comments dropped (no focus tag)"] += 1
 
     # New ids, ordered by time; HN ids are dropped before anything is saved.
     out.sort(key=lambda r: (r["t"], r["hn_id"]))
@@ -198,8 +217,9 @@ def main():
             }) + "\n")
 
     c = Counter((r["type"], r["source"], r["matched"]) for r in out)
-    print(f"{len(threads)} candidate threads -> {n_matched_threads} matched; "
-          f"{len(out)} items")
+    print(f"{len(threads)} candidate threads; {len(out)} items")
+    for k, v in stats.items():
+        print(f"  {k}: {v}")
     for k, v in sorted(c.items(), key=str):
         print(" ", k, v)
 

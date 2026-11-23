@@ -1,430 +1,28 @@
 {
  "nmf": {
-  "k": 12,
+  "k": 10,
   "trials": [
    {
     "k": 10,
-    "coherence": 0.2058
+    "coherence": 0.2131
    },
    {
     "k": 12,
-    "coherence": 0.2079
+    "coherence": 0.2126
    },
    {
     "k": 15,
-    "coherence": 0.1892
+    "coherence": 0.2011
    },
    {
     "k": 20,
-    "coherence": 0.1676
+    "coherence": 0.2101
    }
   ],
   "topics": [
    {
     "id": 0,
-    "coherence": 0.133,
-    "terms": [
-     [
-      "education",
-      1.0
-     ],
-     [
-      "job",
-      0.689
-     ],
-     [
-      "money",
-      0.671
-     ],
-     [
-      "research",
-      0.563
-     ],
-     [
-      "bad",
-      0.427
-     ],
-     [
-      "tech",
-      0.412
-     ],
-     [
-      "jobs",
-      0.411
-     ],
-     [
-      "companies",
-      0.408
-     ],
-     [
-      "society",
-      0.404
-     ],
-     [
-      "value",
-      0.403
-     ],
-     [
-      "university",
-      0.399
-     ],
-     [
-      "data",
-      0.393
-     ],
-     [
-      "models",
-      0.386
-     ],
-     [
-      "knowledge",
-      0.383
-     ],
-     [
-      "pay",
-      0.37
-     ]
-    ],
-    "n": 3070
-   },
-   {
-    "id": 1,
-    "coherence": 0.109,
-    "terms": [
-     [
-      "ai",
-      1.0
-     ],
-     [
-      "human",
-      0.068
-     ],
-     [
-      "student",
-      0.063
-     ],
-     [
-      "tutor",
-      0.062
-     ],
-     [
-      "ai ai",
-      0.054
-     ],
-     [
-      "slop",
-      0.047
-     ],
-     [
-      "ai tutor",
-      0.044
-     ],
-     [
-      "generated",
-      0.043
-     ],
-     [
-      "tool",
-      0.042
-     ],
-     [
-      "students ai",
-      0.042
-     ],
-     [
-      "tools",
-      0.041
-     ],
-     [
-      "ai generated",
-      0.04
-     ],
-     [
-      "detection",
-      0.036
-     ],
-     [
-      "help",
-      0.034
-     ],
-     [
-      "teacher",
-      0.034
-     ]
-    ],
-    "n": 1705
-   },
-   {
-    "id": 2,
-    "coherence": 0.175,
-    "terms": [
-     [
-      "llm",
-      1.0
-     ],
-     [
-      "llms",
-      0.965
-     ],
-     [
-      "answer",
-      0.308
-     ],
-     [
-      "ask",
-      0.298
-     ],
-     [
-      "student",
-      0.256
-     ],
-     [
-      "questions",
-      0.237
-     ],
-     [
-      "question",
-      0.226
-     ],
-     [
-      "human",
-      0.195
-     ],
-     [
-      "teacher",
-      0.181
-     ],
-     [
-      "wrong",
-      0.164
-     ],
-     [
-      "understand",
-      0.163
-     ],
-     [
-      "output",
-      0.162
-     ],
-     [
-      "thinking",
-      0.127
-     ],
-     [
-      "model",
-      0.121
-     ],
-     [
-      "asking",
-      0.119
-     ]
-    ],
-    "n": 1270
-   },
-   {
-    "id": 3,
-    "coherence": 0.262,
-    "terms": [
-     [
-      "school",
-      1.0
-     ],
-     [
-      "high",
-      0.457
-     ],
-     [
-      "high school",
-      0.428
-     ],
-     [
-      "elementary",
-      0.151
-     ],
-     [
-      "elementary school",
-      0.137
-     ],
-     [
-      "teachers",
-      0.126
-     ],
-     [
-      "teacher",
-      0.087
-     ],
-     [
-      "school students",
-      0.078
-     ],
-     [
-      "schools",
-      0.076
-     ],
-     [
-      "middle",
-      0.076
-     ],
-     [
-      "level",
-      0.072
-     ],
-     [
-      "public",
-      0.063
-     ],
-     [
-      "college",
-      0.061
-     ],
-     [
-      "middle school",
-      0.054
-     ],
-     [
-      "math",
-      0.054
-     ]
-    ],
-    "n": 502
-   },
-   {
-    "id": 4,
-    "coherence": 0.351,
-    "terms": [
-     [
-      "google",
-      1.0
-     ],
-     [
-      "search",
-      0.899
-     ],
-     [
-      "schools",
-      0.309
-     ],
-     [
-      "google search",
-      0.298
-     ],
-     [
-      "engine",
-      0.194
-     ],
-     [
-      "results",
-      0.192
-     ],
-     [
-      "search engine",
-      0.188
-     ],
-     [
-      "gemini",
-      0.148
-     ],
-     [
-      "search results",
-      0.132
-     ],
-     [
-      "web",
-      0.121
-     ],
-     [
-      "engines",
-      0.104
-     ],
-     [
-      "product",
-      0.101
-     ],
-     [
-      "search engines",
-      0.096
-     ],
-     [
-      "ai search",
-      0.092
-     ],
-     [
-      "summary",
-      0.078
-     ]
-    ],
-    "n": 518
-   },
-   {
-    "id": 5,
-    "coherence": 0.22,
-    "terms": [
-     [
-      "homework",
-      1.0
-     ],
-     [
-      "grade",
-      0.403
-     ],
-     [
-      "class",
-      0.321
-     ],
-     [
-      "graded",
-      0.138
-     ],
-     [
-      "final",
-      0.127
-     ],
-     [
-      "grading",
-      0.118
-     ],
-     [
-      "ai homework",
-      0.114
-     ],
-     [
-      "grades",
-      0.113
-     ],
-     [
-      "student",
-      0.111
-     ],
-     [
-      "math",
-      0.102
-     ],
-     [
-      "tests",
-      0.099
-     ],
-     [
-      "classes",
-      0.091
-     ],
-     [
-      "assignments",
-      0.086
-     ],
-     [
-      "teacher",
-      0.082
-     ],
-     [
-      "problems",
-      0.075
-     ]
-    ],
-    "n": 489
-   },
-   {
-    "id": 6,
-    "coherence": 0.193,
+    "coherence": 0.156,
     "terms": [
      [
       "learning",
@@ -432,334 +30,401 @@
      ],
      [
       "learn",
-      0.822
+      0.853
      ],
      [
-      "tutor",
-      0.157
+      "problem",
+      0.256
+     ],
+     [
+      "kids",
+      0.225
+     ],
+     [
+      "ai",
+      0.218
+     ],
+     [
+      "answer",
+      0.216
+     ],
+     [
+      "thinking",
+      0.201
      ],
      [
       "help",
-      0.135
+      0.195
+     ],
+     [
+      "solve",
+      0.179
      ],
      [
       "learned",
-      0.126
+      0.177
      ],
      [
-      "material",
-      0.107
+      "questions",
+      0.177
      ],
      [
       "skills",
-      0.102
+      0.176
      ],
      [
       "understanding",
-      0.097
-     ],
-     [
-      "students learn",
-      0.078
-     ],
-     [
-      "tool",
-      0.076
-     ],
-     [
-      "goal",
-      0.075
-     ],
-     [
-      "knowledge",
-      0.074
-     ],
-     [
-      "important",
-      0.071
-     ],
-     [
-      "ai tutor",
-      0.068
-     ],
-     [
-      "understand",
-      0.067
-     ]
-    ],
-    "n": 680
-   },
-   {
-    "id": 7,
-    "coherence": 0.183,
-    "terms": [
-     [
-      "students",
-      1.0
-     ],
-     [
-      "students ai",
-      0.132
-     ],
-     [
-      "cheating",
-      0.102
-     ],
-     [
-      "student",
-      0.099
-     ],
-     [
-      "teaching",
-      0.095
-     ],
-     [
-      "teachers",
-      0.093
-     ],
-     [
-      "professors",
-      0.085
-     ],
-     [
-      "professor",
-      0.077
-     ],
-     [
-      "schools",
-      0.07
+      0.175
      ],
      [
       "teach",
-      0.064
+      0.149
      ],
      [
-      "universities",
-      0.062
-     ],
-     [
-      "education",
-      0.062
-     ],
-     [
-      "cheat",
-      0.059
-     ],
-     [
-      "university",
-      0.057
-     ],
-     [
-      "college",
-      0.054
+      "knowledge",
+      0.149
      ]
     ],
-    "n": 758
+    "n": 433
    },
    {
-    "id": 8,
-    "coherence": 0.224,
+    "id": 1,
+    "coherence": 0.359,
+    "terms": [
+     [
+      "ai",
+      1.0
+     ],
+     [
+      "pangram",
+      0.311
+     ],
+     [
+      "text",
+      0.272
+     ],
+     [
+      "generated",
+      0.243
+     ],
+     [
+      "ai generated",
+      0.211
+     ],
+     [
+      "detection",
+      0.208
+     ],
+     [
+      "detector",
+      0.186
+     ],
+     [
+      "detectors",
+      0.173
+     ],
+     [
+      "ai detection",
+      0.168
+     ],
+     [
+      "false",
+      0.161
+     ],
+     [
+      "ai detectors",
+      0.138
+     ],
+     [
+      "ai detector",
+      0.113
+     ],
+     [
+      "human",
+      0.109
+     ],
+     [
+      "gptzero",
+      0.109
+     ],
+     [
+      "article",
+      0.106
+     ]
+    ],
+    "n": 1007
+   },
+   {
+    "id": 2,
+    "coherence": 0.261,
+    "terms": [
+     [
+      "homework",
+      1.0
+     ],
+     [
+      "grade",
+      0.452
+     ],
+     [
+      "class",
+      0.303
+     ],
+     [
+      "final",
+      0.18
+     ],
+     [
+      "graded",
+      0.171
+     ],
+     [
+      "grades",
+      0.139
+     ],
+     [
+      "grading",
+      0.128
+     ],
+     [
+      "math",
+      0.115
+     ],
+     [
+      "tests",
+      0.114
+     ],
+     [
+      "classes",
+      0.108
+     ],
+     [
+      "student",
+      0.106
+     ],
+     [
+      "teacher",
+      0.095
+     ],
+     [
+      "practice",
+      0.085
+     ],
+     [
+      "in-class",
+      0.08
+     ],
+     [
+      "problems",
+      0.079
+     ]
+    ],
+    "n": 411
+   },
+   {
+    "id": 3,
+    "coherence": 0.187,
     "terms": [
      [
       "writing",
       1.0
      ],
      [
-      "text",
-      0.614
+      "llm",
+      0.889
      ],
      [
       "write",
-      0.59
+      0.608
      ],
      [
-      "read",
-      0.404
-     ],
-     [
-      "article",
-      0.397
-     ],
-     [
-      "essay",
-      0.375
-     ],
-     [
-      "written",
-      0.3
-     ],
-     [
-      "generated",
-      0.244
+      "llms",
+      0.513
      ],
      [
       "human",
-      0.24
-     ],
-     [
-      "detectors",
-      0.239
-     ],
-     [
-      "detector",
-      0.224
-     ],
-     [
-      "detection",
-      0.22
-     ],
-     [
-      "paper",
-      0.217
-     ],
-     [
-      "false",
-      0.208
-     ],
-     [
-      "pangram",
-      0.207
-     ]
-    ],
-    "n": 1193
-   },
-   {
-    "id": 9,
-    "coherence": 0.199,
-    "terms": [
-     [
-      "kids",
-      1.0
-     ],
-     [
-      "parents",
-      0.212
-     ],
-     [
-      "schools",
-      0.201
-     ],
-     [
-      "teachers",
-      0.166
-     ],
-     [
-      "children",
-      0.114
-     ],
-     [
-      "kid",
-      0.113
-     ],
-     [
-      "education",
-      0.092
-     ],
-     [
-      "let",
-      0.09
-     ],
-     [
-      "teach",
-      0.083
-     ],
-     [
-      "kids learn",
-      0.081
+      0.416
      ],
      [
       "read",
-      0.076
+      0.37
      ],
      [
-      "teacher",
-      0.074
+      "essay",
+      0.245
      ],
      [
-      "home",
-      0.07
+      "hand",
+      0.239
      ],
      [
-      "teaching",
-      0.07
+      "text",
+      0.224
      ],
      [
-      "age",
-      0.065
+      "output",
+      0.222
+     ],
+     [
+      "reading",
+      0.202
+     ],
+     [
+      "style",
+      0.177
+     ],
+     [
+      "article",
+      0.176
+     ],
+     [
+      "wrote",
+      0.167
+     ],
+     [
+      "written",
+      0.162
      ]
     ],
-    "n": 633
+    "n": 985
    },
    {
-    "id": 10,
-    "coherence": 0.247,
+    "id": 4,
+    "coherence": 0.255,
     "terms": [
      [
-      "problem",
+      "school",
       1.0
      ],
      [
-      "solve",
-      0.266
+      "high",
+      0.401
      ],
      [
-      "problems",
-      0.231
+      "kids",
+      0.385
      ],
      [
-      "solve problem",
-      0.11
+      "high school",
+      0.381
      ],
      [
-      "thinking",
-      0.101
+      "elementary",
+      0.192
      ],
      [
-      "solution",
-      0.092
+      "elementary school",
+      0.179
      ],
      [
-      "problem ai",
-      0.087
+      "teachers",
+      0.16
      ],
      [
-      "solved",
-      0.08
+      "schools",
+      0.146
      ],
      [
-      "solving",
-      0.073
+      "parents",
+      0.113
      ],
      [
-      "math",
-      0.063
+      "middle",
+      0.089
      ],
      [
-      "ai problem",
-      0.058
+      "home",
+      0.078
      ],
      [
-      "big",
-      0.058
+      "class",
+      0.078
      ],
      [
-      "issue",
-      0.058
+      "teacher",
+      0.072
      ],
      [
-      "solve problems",
-      0.056
+      "went",
+      0.068
      ],
      [
-      "test",
-      0.056
+      "cursive",
+      0.068
      ]
     ],
-    "n": 562
+    "n": 495
    },
    {
-    "id": 11,
-    "coherence": 0.198,
+    "id": 5,
+    "coherence": 0.173,
+    "terms": [
+     [
+      "education",
+      1.0
+     ],
+     [
+      "job",
+      0.493
+     ],
+     [
+      "money",
+      0.343
+     ],
+     [
+      "degree",
+      0.321
+     ],
+     [
+      "university",
+      0.309
+     ],
+     [
+      "college",
+      0.296
+     ],
+     [
+      "value",
+      0.219
+     ],
+     [
+      "society",
+      0.195
+     ],
+     [
+      "higher",
+      0.193
+     ],
+     [
+      "universities",
+      0.185
+     ],
+     [
+      "jobs",
+      0.179
+     ],
+     [
+      "training",
+      0.164
+     ],
+     [
+      "tech",
+      0.16
+     ],
+     [
+      "agree",
+      0.159
+     ],
+     [
+      "companies",
+      0.151
+     ]
+    ],
+    "n": 1406
+   },
+   {
+    "id": 6,
+    "coherence": 0.203,
     "terms": [
      [
       "exams",
@@ -767,62 +432,263 @@
      ],
      [
       "exam",
-      0.884
-     ],
-     [
-      "test",
-      0.263
-     ],
-     [
-      "cheating",
-      0.257
+      0.858
      ],
      [
       "oral",
-      0.239
+      0.273
      ],
      [
-      "paper",
-      0.22
+      "test",
+      0.227
      ],
      [
       "written",
-      0.178
+      0.19
      ],
      [
       "person",
-      0.168
+      0.179
      ],
      [
-      "university",
-      0.163
-     ],
-     [
-      "cheat",
-      0.149
-     ],
-     [
-      "course",
-      0.149
-     ],
-     [
-      "questions",
-      0.148
-     ],
-     [
-      "final",
-      0.146
-     ],
-     [
-      "professor",
-      0.144
+      "book",
+      0.169
      ],
      [
       "oral exams",
-      0.137
+      0.164
+     ],
+     [
+      "university",
+      0.152
+     ],
+     [
+      "questions",
+      0.143
+     ],
+     [
+      "course",
+      0.141
+     ],
+     [
+      "open",
+      0.125
+     ],
+     [
+      "final",
+      0.125
+     ],
+     [
+      "professor",
+      0.122
+     ],
+     [
+      "in-person",
+      0.121
      ]
     ],
-    "n": 791
+    "n": 539
+   },
+   {
+    "id": 7,
+    "coherence": 0.285,
+    "terms": [
+     [
+      "google",
+      1.0
+     ],
+     [
+      "search",
+      0.798
+     ],
+     [
+      "schools",
+      0.491
+     ],
+     [
+      "google search",
+      0.212
+     ],
+     [
+      "results",
+      0.21
+     ],
+     [
+      "product",
+      0.186
+     ],
+     [
+      "web",
+      0.167
+     ],
+     [
+      "search engine",
+      0.161
+     ],
+     [
+      "engine",
+      0.159
+     ],
+     [
+      "ai",
+      0.148
+     ],
+     [
+      "search results",
+      0.146
+     ],
+     [
+      "answer",
+      0.12
+     ],
+     [
+      "page",
+      0.097
+     ],
+     [
+      "search engines",
+      0.087
+     ],
+     [
+      "engines",
+      0.087
+     ]
+    ],
+    "n": 270
+   },
+   {
+    "id": 8,
+    "coherence": 0.172,
+    "terms": [
+     [
+      "students",
+      1.0
+     ],
+     [
+      "cheating",
+      0.303
+     ],
+     [
+      "cheat",
+      0.159
+     ],
+     [
+      "student",
+      0.134
+     ],
+     [
+      "students ai",
+      0.113
+     ],
+     [
+      "professor",
+      0.098
+     ],
+     [
+      "ai",
+      0.084
+     ],
+     [
+      "professors",
+      0.076
+     ],
+     [
+      "classes",
+      0.074
+     ],
+     [
+      "universities",
+      0.072
+     ],
+     [
+      "teachers",
+      0.071
+     ],
+     [
+      "class",
+      0.071
+     ],
+     [
+      "teaching",
+      0.071
+     ],
+     [
+      "assignments",
+      0.067
+     ],
+     [
+      "students cheat",
+      0.067
+     ]
+    ],
+    "n": 550
+   },
+   {
+    "id": 9,
+    "coherence": 0.079,
+    "terms": [
+     [
+      "paper",
+      1.0
+     ],
+     [
+      "papers",
+      0.504
+     ],
+     [
+      "research",
+      0.298
+     ],
+     [
+      "citations",
+      0.239
+     ],
+     [
+      "authors",
+      0.173
+     ],
+     [
+      "pen",
+      0.17
+     ],
+     [
+      "review",
+      0.163
+     ],
+     [
+      "pen paper",
+      0.146
+     ],
+     [
+      "problem",
+      0.145
+     ],
+     [
+      "citation",
+      0.135
+     ],
+     [
+      "hallucinations",
+      0.126
+     ],
+     [
+      "published",
+      0.121
+     ],
+     [
+      "science",
+      0.117
+     ],
+     [
+      "errors",
+      0.098
+     ],
+     [
+      "data",
+      0.093
+     ]
+    ],
+    "n": 527
    }
   ]
  },
@@ -831,628 +697,25 @@
   "trials": [
    {
     "k": 10,
-    "coherence": 0.1854
+    "coherence": 0.174
    },
    {
     "k": 12,
-    "coherence": 0.1659
+    "coherence": 0.1539
    },
    {
     "k": 15,
-    "coherence": 0.1769
+    "coherence": 0.168
    },
    {
     "k": 20,
-    "coherence": 0.1637
+    "coherence": 0.1619
    }
   ],
   "topics": [
    {
     "id": 0,
-    "coherence": 0.22,
-    "terms": [
-     [
-      "students",
-      1.0
-     ],
-     [
-      "exams",
-      0.387
-     ],
-     [
-      "homework",
-      0.376
-     ],
-     [
-      "exam",
-      0.366
-     ],
-     [
-      "student",
-      0.355
-     ],
-     [
-      "class",
-      0.293
-     ],
-     [
-      "grade",
-      0.214
-     ],
-     [
-      "cheating",
-      0.203
-     ],
-     [
-      "test",
-      0.199
-     ],
-     [
-      "math",
-      0.199
-     ],
-     [
-      "course",
-      0.197
-     ],
-     [
-      "ai",
-      0.192
-     ],
-     [
-      "learning",
-      0.176
-     ],
-     [
-      "material",
-      0.166
-     ],
-     [
-      "classes",
-      0.16
-     ]
-    ],
-    "n": 1911
-   },
-   {
-    "id": 1,
-    "coherence": 0.123,
-    "terms": [
-     [
-      "social",
-      1.0
-     ],
-     [
-      "law",
-      0.835
-     ],
-     [
-      "society",
-      0.687
-     ],
-     [
-      "media",
-      0.678
-     ],
-     [
-      "legal",
-      0.674
-     ],
-     [
-      "state",
-      0.586
-     ],
-     [
-      "case",
-      0.534
-     ],
-     [
-      "power",
-      0.529
-     ],
-     [
-      "government",
-      0.519
-     ],
-     [
-      "social media",
-      0.431
-     ],
-     [
-      "labor",
-      0.4
-     ],
-     [
-      "bad",
-      0.397
-     ],
-     [
-      "technology",
-      0.377
-     ],
-     [
-      "problem",
-      0.346
-     ],
-     [
-      "laws",
-      0.342
-     ]
-    ],
-    "n": 1185
-   },
-   {
-    "id": 2,
-    "coherence": 0.198,
-    "terms": [
-     [
-      "school",
-      1.0
-     ],
-     [
-      "high",
-      0.596
-     ],
-     [
-      "high school",
-      0.377
-     ],
-     [
-      "university",
-      0.336
-     ],
-     [
-      "job",
-      0.316
-     ],
-     [
-      "college",
-      0.307
-     ],
-     [
-      "degree",
-      0.267
-     ],
-     [
-      "education",
-      0.246
-     ],
-     [
-      "money",
-      0.233
-     ],
-     [
-      "students",
-      0.226
-     ],
-     [
-      "computer",
-      0.197
-     ],
-     [
-      "went",
-      0.179
-     ],
-     [
-      "universities",
-      0.178
-     ],
-     [
-      "internet",
-      0.174
-     ],
-     [
-      "schools",
-      0.171
-     ]
-    ],
-    "n": 1018
-   },
-   {
-    "id": 3,
-    "coherence": 0.157,
-    "terms": [
-     [
-      "research",
-      1.0
-     ],
-     [
-      "essay",
-      0.671
-     ],
-     [
-      "paper",
-      0.658
-     ],
-     [
-      "papers",
-      0.539
-     ],
-     [
-      "ai",
-      0.493
-     ],
-     [
-      "write",
-      0.49
-     ],
-     [
-      "writing",
-      0.259
-     ],
-     [
-      "professor",
-      0.251
-     ],
-     [
-      "read",
-      0.23
-     ],
-     [
-      "citations",
-      0.199
-     ],
-     [
-      "review",
-      0.176
-     ],
-     [
-      "book",
-      0.168
-     ],
-     [
-      "academic",
-      0.167
-     ],
-     [
-      "university",
-      0.163
-     ],
-     [
-      "problem",
-      0.16
-     ]
-    ],
-    "n": 837
-   },
-   {
-    "id": 4,
-    "coherence": 0.231,
-    "terms": [
-     [
-      "ai",
-      1.0
-     ],
-     [
-      "claude",
-      0.769
-     ],
-     [
-      "built",
-      0.613
-     ],
-     [
-      "model",
-      0.589
-     ],
-     [
-      "software",
-      0.541
-     ],
-     [
-      "feedback",
-      0.53
-     ],
-     [
-      "models",
-      0.511
-     ],
-     [
-      "coding",
-      0.485
-     ],
-     [
-      "building",
-      0.455
-     ],
-     [
-      "agent",
-      0.447
-     ],
-     [
-      "data",
-      0.439
-     ],
-     [
-      "agents",
-      0.415
-     ],
-     [
-      "build",
-      0.331
-     ],
-     [
-      "open",
-      0.314
-     ],
-     [
-      "run",
-      0.294
-     ]
-    ],
-    "n": 713
-   },
-   {
-    "id": 5,
-    "coherence": 0.119,
-    "terms": [
-     [
-      "ai",
-      1.0
-     ],
-     [
-      "human",
-      0.07
-     ],
-     [
-      "future",
-      0.069
-     ],
-     [
-      "companies",
-      0.06
-     ],
-     [
-      "value",
-      0.06
-     ],
-     [
-      "students",
-      0.057
-     ],
-     [
-      "job",
-      0.054
-     ],
-     [
-      "jobs",
-      0.049
-     ],
-     [
-      "technology",
-      0.049
-     ],
-     [
-      "feel",
-      0.045
-     ],
-     [
-      "humans",
-      0.041
-     ],
-     [
-      "money",
-      0.041
-     ],
-     [
-      "education",
-      0.04
-     ],
-     [
-      "industry",
-      0.04
-     ],
-     [
-      "training",
-      0.04
-     ]
-    ],
-    "n": 1412
-   },
-   {
-    "id": 6,
-    "coherence": 0.229,
-    "terms": [
-     [
-      "google",
-      1.0
-     ],
-     [
-      "search",
-      0.766
-     ],
-     [
-      "results",
-      0.235
-     ],
-     [
-      "product",
-      0.201
-     ],
-     [
-      "schools",
-      0.192
-     ],
-     [
-      "company",
-      0.157
-     ],
-     [
-      "tech",
-      0.127
-     ],
-     [
-      "web",
-      0.123
-     ],
-     [
-      "engine",
-      0.122
-     ],
-     [
-      "google search",
-      0.114
-     ],
-     [
-      "companies",
-      0.113
-     ],
-     [
-      "away",
-      0.113
-     ],
-     [
-      "ago",
-      0.11
-     ],
-     [
-      "gemini",
-      0.106
-     ],
-     [
-      "money",
-      0.102
-     ]
-    ],
-    "n": 809
-   },
-   {
-    "id": 7,
-    "coherence": 0.166,
-    "terms": [
-     [
-      "llm",
-      1.0
-     ],
-     [
-      "llms",
-      0.906
-     ],
-     [
-      "thinking",
-      0.429
-     ],
-     [
-      "human",
-      0.423
-     ],
-     [
-      "language",
-      0.316
-     ],
-     [
-      "understand",
-      0.286
-     ],
-     [
-      "knowledge",
-      0.279
-     ],
-     [
-      "answer",
-      0.26
-     ],
-     [
-      "model",
-      0.251
-     ],
-     [
-      "understanding",
-      0.249
-     ],
-     [
-      "question",
-      0.237
-     ],
-     [
-      "ask",
-      0.229
-     ],
-     [
-      "learning",
-      0.214
-     ],
-     [
-      "humans",
-      0.2
-     ],
-     [
-      "output",
-      0.2
-     ]
-    ],
-    "n": 1932
-   },
-   {
-    "id": 8,
-    "coherence": 0.221,
-    "terms": [
-     [
-      "ai",
-      1.0
-     ],
-     [
-      "writing",
-      0.343
-     ],
-     [
-      "text",
-      0.327
-     ],
-     [
-      "generated",
-      0.156
-     ],
-     [
-      "written",
-      0.154
-     ],
-     [
-      "human",
-      0.142
-     ],
-     [
-      "content",
-      0.141
-     ],
-     [
-      "detection",
-      0.14
-     ],
-     [
-      "article",
-      0.134
-     ],
-     [
-      "false",
-      0.13
-     ],
-     [
-      "write",
-      0.102
-     ],
-     [
-      "tools",
-      0.095
-     ],
-     [
-      "ai generated",
-      0.095
-     ],
-     [
-      "detectors",
-      0.095
-     ],
-     [
-      "detector",
-      0.083
-     ]
-    ],
-    "n": 993
-   },
-   {
-    "id": 9,
-    "coherence": 0.19,
+    "coherence": 0.149,
     "terms": [
      [
       "ai",
@@ -1460,62 +723,665 @@
      ],
      [
       "kids",
-      0.584
-     ],
-     [
-      "learning",
-      0.547
-     ],
-     [
-      "students",
-      0.522
-     ],
-     [
-      "education",
-      0.489
-     ],
-     [
-      "learn",
-      0.427
-     ],
-     [
-      "teachers",
-      0.427
+      0.663
      ],
      [
       "school",
-      0.35
+      0.54
      ],
      [
-      "teacher",
-      0.26
+      "teachers",
+      0.386
      ],
      [
-      "teaching",
-      0.245
+      "learning",
+      0.383
      ],
      [
       "schools",
+      0.306
+     ],
+     [
+      "learn",
+      0.291
+     ],
+     [
+      "education",
+      0.281
+     ],
+     [
+      "students",
+      0.199
+     ],
+     [
+      "writing",
+      0.173
+     ],
+     [
+      "read",
+      0.168
+     ],
+     [
+      "parents",
+      0.153
+     ],
+     [
+      "write",
+      0.143
+     ],
+     [
+      "tools",
+      0.134
+     ],
+     [
+      "kid",
+      0.128
+     ]
+    ],
+    "n": 797
+   },
+   {
+    "id": 1,
+    "coherence": 0.178,
+    "terms": [
+     [
+      "exams",
+      1.0
+     ],
+     [
+      "exam",
+      0.811
+     ],
+     [
+      "test",
+      0.413
+     ],
+     [
+      "person",
+      0.345
+     ],
+     [
+      "oral",
+      0.311
+     ],
+     [
+      "written",
+      0.271
+     ],
+     [
+      "hand",
+      0.253
+     ],
+     [
+      "book",
+      0.208
+     ],
+     [
+      "students",
+      0.196
+     ],
+     [
+      "problems",
+      0.183
+     ],
+     [
+      "tests",
+      0.179
+     ],
+     [
+      "write",
+      0.17
+     ],
+     [
+      "paper",
+      0.155
+     ],
+     [
+      "open",
+      0.138
+     ],
+     [
+      "understanding",
+      0.137
+     ]
+    ],
+    "n": 456
+   },
+   {
+    "id": 2,
+    "coherence": 0.157,
+    "terms": [
+     [
+      "education",
+      1.0
+     ],
+     [
+      "job",
+      0.912
+     ],
+     [
+      "money",
+      0.777
+     ],
+     [
+      "social",
+      0.711
+     ],
+     [
+      "jobs",
+      0.599
+     ],
+     [
+      "society",
+      0.527
+     ],
+     [
+      "tech",
+      0.501
+     ],
+     [
+      "technology",
+      0.426
+     ],
+     [
+      "market",
+      0.405
+     ],
+     [
+      "degree",
+      0.374
+     ],
+     [
+      "future",
+      0.357
+     ],
+     [
+      "college",
+      0.346
+     ],
+     [
+      "schools",
+      0.34
+     ],
+     [
+      "hard",
+      0.315
+     ],
+     [
+      "state",
+      0.303
+     ]
+    ],
+    "n": 730
+   },
+   {
+    "id": 3,
+    "coherence": 0.128,
+    "terms": [
+     [
+      "ai",
+      1.0
+     ],
+     [
+      "answer",
+      0.696
+     ],
+     [
+      "question",
+      0.502
+     ],
+     [
+      "questions",
+      0.39
+     ],
+     [
+      "comment",
+      0.344
+     ],
+     [
+      "let",
+      0.309
+     ],
+     [
+      "ask",
+      0.271
+     ],
+     [
+      "line",
+      0.246
+     ],
+     [
+      "care",
+      0.245
+     ],
+     [
+      "person",
+      0.22
+     ],
+     [
+      "making",
+      0.203
+     ],
+     [
+      "test",
+      0.192
+     ],
+     [
+      "wouldn",
+      0.186
+     ],
+     [
+      "video",
+      0.183
+     ],
+     [
+      "won",
+      0.183
+     ]
+    ],
+    "n": 413
+   },
+   {
+    "id": 4,
+    "coherence": 0.183,
+    "terms": [
+     [
+      "paper",
+      1.0
+     ],
+     [
+      "research",
+      0.793
+     ],
+     [
+      "papers",
+      0.764
+     ],
+     [
+      "data",
+      0.638
+     ],
+     [
+      "problem",
+      0.428
+     ],
+     [
+      "review",
+      0.422
+     ],
+     [
+      "citations",
+      0.344
+     ],
+     [
+      "science",
+      0.325
+     ],
+     [
+      "training",
+      0.283
+     ],
+     [
+      "authors",
+      0.265
+     ],
+     [
+      "true",
+      0.25
+     ],
+     [
+      "citation",
+      0.244
+     ],
+     [
+      "results",
+      0.23
+     ],
+     [
+      "value",
       0.215
      ],
      [
-      "tutor",
-      0.187
+      "academic",
+      0.201
+     ]
+    ],
+    "n": 595
+   },
+   {
+    "id": 5,
+    "coherence": 0.216,
+    "terms": [
+     [
+      "students",
+      1.0
      ],
      [
-      "teach",
-      0.171
+      "cheating",
+      0.529
      ],
      [
-      "children",
-      0.165
+      "homework",
+      0.398
+     ],
+     [
+      "grade",
+      0.289
+     ],
+     [
+      "exam",
+      0.274
+     ],
+     [
+      "cheat",
+      0.242
+     ],
+     [
+      "ai",
+      0.229
+     ],
+     [
+      "exams",
+      0.219
+     ],
+     [
+      "assignments",
+      0.209
+     ],
+     [
+      "final",
+      0.184
+     ],
+     [
+      "grading",
+      0.17
+     ],
+     [
+      "course",
+      0.168
+     ],
+     [
+      "professor",
+      0.153
+     ],
+     [
+      "learning",
+      0.134
+     ],
+     [
+      "class",
+      0.111
+     ]
+    ],
+    "n": 609
+   },
+   {
+    "id": 6,
+    "coherence": 0.14,
+    "terms": [
+     [
+      "ai",
+      1.0
+     ],
+     [
+      "llm",
+      0.716
+     ],
+     [
+      "llms",
+      0.676
+     ],
+     [
+      "learning",
+      0.527
+     ],
+     [
+      "students",
+      0.492
+     ],
+     [
+      "thinking",
+      0.364
+     ],
+     [
+      "learn",
+      0.357
+     ],
+     [
+      "knowledge",
+      0.346
+     ],
+     [
+      "understand",
+      0.289
+     ],
+     [
+      "answer",
+      0.267
+     ],
+     [
+      "help",
+      0.251
+     ],
+     [
+      "skills",
+      0.239
+     ],
+     [
+      "understanding",
+      0.233
+     ],
+     [
+      "problem",
+      0.224
+     ],
+     [
+      "tool",
+      0.224
+     ]
+    ],
+    "n": 816
+   },
+   {
+    "id": 7,
+    "coherence": 0.278,
+    "terms": [
+     [
+      "ai",
+      1.0
+     ],
+     [
+      "text",
+      0.52
+     ],
+     [
+      "writing",
+      0.494
+     ],
+     [
+      "pangram",
+      0.33
+     ],
+     [
+      "human",
+      0.299
+     ],
+     [
+      "generated",
+      0.239
+     ],
+     [
+      "false",
+      0.22
+     ],
+     [
+      "detection",
+      0.219
+     ],
+     [
+      "llm",
+      0.213
+     ],
+     [
+      "detectors",
+      0.18
+     ],
+     [
+      "content",
+      0.177
+     ],
+     [
+      "ai generated",
+      0.164
+     ],
+     [
+      "write",
+      0.162
+     ],
+     [
+      "detector",
+      0.16
+     ],
+     [
+      "article",
+      0.157
+     ]
+    ],
+    "n": 873
+   },
+   {
+    "id": 8,
+    "coherence": 0.179,
+    "terms": [
+     [
+      "students",
+      1.0
      ],
      [
       "student",
-      0.149
+      0.658
+     ],
+     [
+      "class",
+      0.653
+     ],
+     [
+      "school",
+      0.538
+     ],
+     [
+      "homework",
+      0.415
+     ],
+     [
+      "university",
+      0.411
+     ],
+     [
+      "education",
+      0.396
+     ],
+     [
+      "college",
+      0.392
+     ],
+     [
+      "teacher",
+      0.352
+     ],
+     [
+      "classes",
+      0.34
+     ],
+     [
+      "learn",
+      0.298
+     ],
+     [
+      "high",
+      0.262
+     ],
+     [
+      "math",
+      0.247
+     ],
+     [
+      "learning",
+      0.219
+     ],
+     [
+      "course",
+      0.214
      ]
     ],
-    "n": 1683
+    "n": 932
+   },
+   {
+    "id": 9,
+    "coherence": 0.13,
+    "terms": [
+     [
+      "ai",
+      1.0
+     ],
+     [
+      "google",
+      0.147
+     ],
+     [
+      "search",
+      0.126
+     ],
+     [
+      "output",
+      0.084
+     ],
+     [
+      "problem",
+      0.084
+     ],
+     [
+      "language",
+      0.083
+     ],
+     [
+      "write",
+      0.082
+     ],
+     [
+      "slop",
+      0.065
+     ],
+     [
+      "essay",
+      0.063
+     ],
+     [
+      "human",
+      0.06
+     ],
+     [
+      "writing",
+      0.058
+     ],
+     [
+      "says",
+      0.051
+     ],
+     [
+      "llm",
+      0.05
+     ],
+     [
+      "written",
+      0.049
+     ],
+     [
+      "saying",
+      0.047
+     ]
+    ],
+    "n": 583
    }
   ]
  }

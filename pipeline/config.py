@@ -63,7 +63,8 @@ WEAK_EDU = _rx(
 
 # A detector product name is relevant on its own.
 DETECTOR_BRANDS = _rx(r"\b(turnitin|gptzero|zerogpt|originality\.ai|copyleaks|"
-                      r"winston ai|quillbot|undetectable\.ai|stealthgpt)\b")
+                      r"winston ai|quillbot|undetectable\.ai|stealthgpt|"
+                      r"pangram)\b")
 # Generic "AI detector" language is relevant only near writing/education words
 # (otherwise it is often about images, deepfakes, malware, etc.).
 GENERIC_DETECTOR = _rx(
@@ -77,14 +78,32 @@ CHEATING_TERMS = _rx(
     r"\b(cheat\w*|plagiari\w+|academic (?:dis)?honesty|academic integrity|"
     r"academic misconduct|ghost-?writ\w*|contract cheating|dishonest\w*)\b")
 
-RESPONSE_TERMS = _rx(
+# Teacher/institution responses. Specific practices count on their own;
+# generic change words count only near a teaching/assessment word.
+RESPONSE_SPECIFIC = _rx(
     r"\b(blue ?books?|oral (?:exam|test|defen[cs]e)s?|vivas?|viva voce|"
     r"handwrit\w*|hand-?written|in[- ]class (?:essay|writing|exam|test)s?|"
     r"in[- ]person (?:exam|test)s?|proctor\w*|pen(?:cil)?[- ]and[- ]paper|"
     r"flipped classroom|lockdown browser|(?:ai|chatgpt|llm) polic(?:y|ies)|"
-    r"syllabus|syllabi|ban(?:s|ned|ning)? (?:ai|chatgpt|llms?)|"
-    r"redesign\w*|rethink\w*|assessment\w*|google docs? (?:history|version)|"
-    r"version history|keystroke\w*)\b")
+    r"ban(?:s|ned|ning)? (?:ai|chatgpt|llms?|laptops|devices|computers|"
+    r"phones|screens)|ban(?:s|ned|ning)? on (?:ai|chatgpt|llms?|generative ai)|"
+    r"(?:near|total|outright|blanket) bans?|moratori(?:um|ums|a)|"
+    r"google docs? (?:history|version)|version history|keystroke\w*)\b")
+RESPONSE_GENERAL = _rx(
+    r"\b(redesign\w*|rethink\w*|reimagin\w*|assess(?:es|ed|ing|ments?)?|"
+    r"syllabus|syllabi|prohibit\w*|polic(?:y|ies)|rules?|adapt\w*|"
+    r"(?:no longer|stopped|stop) (?:grad\w+|assign\w+))\b")
+TEACHING_CONTEXT = _rx(
+    r"\b(homework|coursework|assignments?|exams?|tests?|quiz(?:zes)?|"
+    r"grad(?:e|es|ed|ing)|essays?|classrooms?|class(?:es)?|courses?|"
+    r"curricul(?:um|a)|teach\w*|students?|teachers?|professors?|"
+    r"instructors?|lecturers?|educators?|schools?|universit(?:y|ies))\b")
+RESPONSE_WINDOW = 6  # tokens
+# Generic detector wording in a story title counts as "detection" unless the
+# title is about some other kind of detection.
+NON_TEXT_DETECTION = _rx(
+    r"\b(images?|photos?|pictures?|videos?|youtube|deepfakes?|audio|voice|"
+    r"music|phishing|malware|spam|fraud|guns?|weapons?|faces?|bots?)\b")
 
 # A text counts as AI-and-education when it has at least MIN_STRONG strong
 # education words and an AI term within PROXIMITY_WINDOW tokens of one.
@@ -94,9 +113,14 @@ MIN_STRONG = 2
 # included when at least this many comments in its thread pass the text rule.
 MIN_THREAD_SUPPORT = 3
 
+# The three focus groups. An item is in the corpus only if it carries at
+# least one (see relevance.py); general AI-in-education talk without any of
+# them is left out.
 GROUPS = {
     "detection": "AI detectors (Turnitin, GPTZero, ...)",
     "cheating": "Students cheating with AI",
     "response": "How teachers are responding",
-    "other": "Other AI-in-education",
 }
+# An untagged story stays if at least this many keyword-matched comments in
+# its thread carry a focus tag (its discussion is about the focus topics).
+MIN_FOCUS_SUPPORT = 3

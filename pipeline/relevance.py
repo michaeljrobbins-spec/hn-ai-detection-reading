@@ -13,11 +13,15 @@ Story rule -- a story is matched when:
     MIN_THREAD_SUPPORT comments in its thread pass the text rule, or
   - its body text passes the text rule.
 
-Group tags (an item can carry several):
+Focus tags (an item can carry several):
   detection - detector product or generic detector language
   cheating  - cheating / plagiarism / academic-integrity vocabulary
-  response  - assessment-change vocabulary (blue books, oral exams, ...)
-  other     - matched, but none of the three above
+  response  - assessment and policy changes (blue books, oral exams, bans,
+              moratoriums, redesigned assessment, ...)
+An item is in the corpus only if it matches AND carries a focus tag. A
+matched story without one stays if at least MIN_FOCUS_SUPPORT keyword-
+matched comments in its thread carry one; it then takes the tag(s) most
+common among them. See build_corpus.py.
 
 These rules were tuned on one hand-labelled sample and measured on a
 second, fresh one; see pipeline/audit.py and the Methods page.
@@ -26,8 +30,9 @@ import re
 
 from config import (AI_TERMS, CHEATING_TERMS, DETECTOR_BRANDS,
                     GENERIC_DETECTOR, MIN_STRONG, MIN_THREAD_SUPPORT,
-                    PROXIMITY_WINDOW, RESPONSE_TERMS, STRONG_EDU, WEAK_EDU,
-                    WRITING_TERMS)
+                    NON_TEXT_DETECTION, PROXIMITY_WINDOW, RESPONSE_GENERAL,
+                    RESPONSE_SPECIFIC, RESPONSE_WINDOW, STRONG_EDU,
+                    TEACHING_CONTEXT, WEAK_EDU, WRITING_TERMS)
 
 _TOKEN = re.compile(r"\S+")
 
@@ -96,12 +101,21 @@ def story_candidate(title, text):
     return bool(title and AI_TERMS.search(title) and WEAK_EDU.search(title))
 
 
-def groups_for(text):
+def groups_for(text, title=""):
+    """Focus-group tags for an item; empty if it has none.
+
+    In a story *title*, generic "AI detector" wording counts on its own:
+    titles are too short to carry the writing/education words the text
+    rule asks for ("AI detectors are a bad idea")."""
     groups = []
-    if _detection(text):
+    title_detector = bool(title) and bool(GENERIC_DETECTOR.search(title)) \
+        and not NON_TEXT_DETECTION.search(title)
+    if _detection(text) or title_detector:
         groups.append("detection")
     if CHEATING_TERMS.search(text):
         groups.append("cheating")
-    if RESPONSE_TERMS.search(text):
+    if RESPONSE_SPECIFIC.search(text) or _near(
+            _positions(RESPONSE_GENERAL, text),
+            _positions(TEACHING_CONTEXT, text), RESPONSE_WINDOW):
         groups.append("response")
-    return groups or ["other"]
+    return groups

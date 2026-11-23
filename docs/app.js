@@ -2,8 +2,8 @@
 (async function () {
   "use strict";
 
-  const GROUP_ORDER = ["detection", "cheating", "response", "other"];
-  const SHORT_GROUP = { detection: "Detectors", cheating: "Cheating", response: "Teacher response", other: "Other" };
+  const GROUP_ORDER = ["detection", "cheating", "response"];
+  const SHORT_GROUP = { detection: "Detectors", cheating: "Cheating", response: "Teacher response" };
   const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
   const fmt = d3.format(",");
   const fmtS = d3.format("+.2f");
@@ -29,7 +29,7 @@
     if (o.matched) o.g = o.groups;
     else {
       const root = o.thread != null ? byId.get(o.thread) : null;
-      o.g = root && root.groups.length ? root.groups : ["other"];
+      o.g = root ? root.groups : [];
     }
   }
   // Children lists for thread view.
